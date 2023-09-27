@@ -59,7 +59,7 @@ namespace BookManage.Controllers
                 return NotFound();
             }
             
-            return View();
+            return View(CategoryFromDb);
         }
 
         //POST
@@ -73,7 +73,7 @@ namespace BookManage.Controllers
             }
             if (ModelState.IsValid)
             {
-                _db.Categories.Add(obj);
+                _db.Categories.Update(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
